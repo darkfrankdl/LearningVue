@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+<h1>Hello Vue</h1>
+
+<div id = "app" > 
+
+    <div v-if="showBooks"> <!-- if the condition inside the "" evaluates to true show what's inside the div tag-->
+        <p> {{title}} - {{author}} - {{age}} </p>
+    </div>
+    <!--  notice the syntax {{}} this outputs some property and notice that it outputs only the property of the app section inside the app.js-->
+    <!-- <p> {{title}} - {{author}} - {{age}} </p> this is fine as hardcoded but what if this output on the webpage should be dynamically changed. vue can do that see the app section in app.js under createapp  -->
+    
+        <!-- reacting to events in javascript / vue-->
+    <!-- <button v-on:click="age++">Increase age</button> --> <!-- this is a way in the html file (template) to run javascript inside the rendered component-->
+    <!-- <button v-on:click="age--">Decrease age</button>  -->
+    <!--<div v-on:click="title = 'something else'">change book title</div>-->
+<!-- <div v-on:click="changeTitle('BlueJ')">change book title</div> -->
+<button v-on:click = "ToggleShowBooks">
+    <span v-if="showBooks"> Hide books</span> <!-- affects the DOM where v-show does not but only CSS. removing and adding DOM is more computer intensive so could hurt performance-->
+    <span v-if="!showBooks"> show books</span>
+</button>
+</div>
+
+<script src = "app.js"></script>
+</body>
+</html>
