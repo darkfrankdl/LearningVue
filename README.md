@@ -4,5 +4,5 @@ this little repository is where I am learning myself vueJS
 
 # things learned 
 - HTML
--Javascript
+- Javascript
 - VueJs
