@@ -6,27 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+
+    <style> 
+        .box{
+            background: #eee;
+            max-width: 960px;
+            margin:20px auto;
+        }
+        p,h3,u1 {
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: center;
+            display : flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background: #ff9ed2;
+            color:white;
+        }
+        
+    </style>
+
+
+
 </head>
 <body>
 <h1>Hello Vue</h1>
 
 <div id = "app" > 
 
-    <div v-if="showBooks"> <!-- if the condition inside the "" evaluates to true show what's inside the div tag-->
-        <p> {{title}} - {{author}} - {{age}} </p>
+    <a v-bind:href="url"> best Website EVER !!</a>
+
+    <div v-if="showBooks"> 
+        
+        <ul>
+            
+            <li  v-for="book in filteredBooks" v-bind:class="{fav: book.isFav}" v-on:click="changeIsFav(book)">
+                <img v-bind:src="book.img" v-bind:alt="book.title"> </img>
+                <h3>
+                    {{book.title}}
+                </h3>
+                <p> {{book.author}}</p>
+            </li>
+        </ul>
     </div>
-    <!--  notice the syntax {{}} this outputs some property and notice that it outputs only the property of the app section inside the app.js-->
-    <!-- <p> {{title}} - {{author}} - {{age}} </p> this is fine as hardcoded but what if this output on the webpage should be dynamically changed. vue can do that see the app section in app.js under createapp  -->
-    
-        <!-- reacting to events in javascript / vue-->
-    <!-- <button v-on:click="age++">Increase age</button> --> <!-- this is a way in the html file (template) to run javascript inside the rendered component-->
-    <!-- <button v-on:click="age--">Decrease age</button>  -->
-    <!--<div v-on:click="title = 'something else'">change book title</div>-->
-<!-- <div v-on:click="changeTitle('BlueJ')">change book title</div> -->
-<button v-on:click = "ToggleShowBooks">
-    <span v-if="showBooks"> Hide books</span> <!-- affects the DOM where v-show does not but only CSS. removing and adding DOM is more computer intensive so could hurt performance-->
-    <span v-if="!showBooks"> show books</span>
-</button>
+   
+    <button v-on:click = "ToggleShowBooks">
+        <span v-if="showBooks"> Hide books</span> 
+        <span v-if="!showBooks"> show books</span>
+    </button>
 </div>
 
 <script src = "app.js"></script>
