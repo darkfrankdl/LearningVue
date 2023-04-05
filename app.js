@@ -14,7 +14,7 @@ const app = Vue.createApp({
                 {title: 'the way of kings' , author: 'brandon sanderson',img: 'assets/2.jpg',isFav: false},
                 {title: 'the final empire' , author: 'brandon sanderson',img: 'assets/3.jpg',isFav: true}
             ],
-            url: 'http://www.thenetninja.co.uk'
+            url: 'https://github.com/darkfrankdl'
 
         } 
     },
